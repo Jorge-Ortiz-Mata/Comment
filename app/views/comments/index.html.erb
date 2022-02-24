@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+<%= turbo_stream_from "comments" %>
+<h1>Comments</h1>
+<%= turbo_frame_tag "comment_form" do %>
+<%= render 'form', comment: @comment %>
+<% end %>
+
+<%= turbo_frame_tag "comments" do %>
+  <%= render @comments %>
+<% end %>
+
+<%= link_to "New comment", new_comment_path %>
